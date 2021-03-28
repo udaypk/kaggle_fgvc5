@@ -1,0 +1,36 @@
+tensorboard --logdir=/home/ailab/Documents/Uday/tensorflow/models/research/object_detection/data/PascalVOC/models/model/
+
+11956 is the last good check point
+
+train images= 191995
+valid images= 6301
+
+|& tee to log and see on terminal
+
+
+python download_and_convert_data.py \
+    --dataset_name=flowers \
+    --dataset_dir=./flowers
+
+python download_and_convert_data.py \
+    --dataset_name=cifar10 \
+    --dataset_dir=./cifar10
+
+python download_and_convert_data.py \
+    --dataset_name=flowers \
+    --dataset_dir=./flowers
+
+split -b 10M home.tar.bz2 "home.tar.bz2.part"
+cat home.tar.bz2.parta* >backup.tar.gz.joined
+
+python export_inference_graph.py \
+  --alsologtostderr \
+  --model_name=resnet_v1_50 \
+  --output_file=/resnet_v1_50_graph.pb
+
+
+
+
+
+
+
